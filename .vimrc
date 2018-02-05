@@ -1,4 +1,4 @@
-
+syntax on
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -9,7 +9,7 @@ nnoremap <C-P> :bp<CR>
 let g:airline_theme="molokai"
 """set nocompatible
 set modeline
-filetype off
+filetype plugin on
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
@@ -22,23 +22,16 @@ let g:mapleader = ","
 " 系统剪切板
 set clipboard=unnamed
 
-
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-
-
 set nu
 set encoding=utf-8
 :set tabstop=8 expandtab shiftwidth=4 softtabstop=4
 set pastetoggle=<F8>
-"""set ts=4
-"""set sw=4
-"""set smartindent
-"""set laststatus=2
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
@@ -47,31 +40,18 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'python.vim'                                             
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'junegunn/vim-easy-align'
-
-
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'tpope/vim-surround'
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 colorscheme molokai
 
-" 自动补全括号括号
-inoremap ( ()<LEFT>
-inoremap [ []<LEFT>
-inoremap { {}<LEFT>
-inoremap ' ''<LEFT>
-inoremap " ""<LEFT>
-inoremap < <><LEFT>
-inoremap {% {%%}<LEFT>
-
-
-
-"==== F3 NERDTree 切换
+" F3 NERDTree 切换
 map <F3> :NERDTreeToggle<CR>
-imap <F3> <ESC>:NERDTreeToggle<CR>
-
-"taglist快捷键
-map <silent> <F7> :TlistToggle<cr> 
+map <F3> :NERDTreeToggle<CR>
 
 function HeaderPython()
     call setline(1, "#!/usr/bin/python")
@@ -82,12 +62,11 @@ endf
 autocmd bufnewfile *.py call HeaderPython()
 
 autocmd bufnewfile *.html 0r ~/.vim/template/simple.html
-autocmd bufnewfile *.md 0r ~/.vim/template/simple.md
-autocmd bufnewfile *.js 0r ~/.vim/template/simple.js
+"""autocmd bufnewfile *.md 0r ~/.vim/template/simple.md
+"""autocmd bufnewfile *.js 0r ~/.vim/template/simple.js
 
 
-Bundle 'docunext/closetag.vim'
-let g:closetag_html_style=1
+""""Bundle 'docunext/closetag.vim'
 
 """Markdown
 let g:vim_markdown_folding_style_pythonic = 1
@@ -101,3 +80,64 @@ if !exists('g:easy_align_delimiters')
   let g:easy_align_delimiters = {}
 endif
 let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
+
+let g:NERDSpaceDelims = 1
+
+
+set foldmethod=indent
+set foldlevel=99
+
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap { {}<Esc>i
+autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
+inoremap ) <c-r>=ClosePair(')')<CR>
+inoremap ] <c-r>=ClosePair(']')<CR>
+inoremap } <c-r>=CloseBracket()<CR>
+inoremap " <c-r>=QuoteDelim('"')<CR>
+inoremap ' <c-r>=QuoteDelim("'")<CR>
+
+"""自动补全括号
+function ClosePair(char)
+ if getline('.')[col('.') - 1] == a:char
+ return "\<Right>"
+ else
+ return a:char
+ endif
+endf
+
+function CloseBracket()
+ if match(getline(line('.') + 1), '\s*}') < 0
+ return "\<CR>}"
+ else
+ return "\<Esc>j0f}a"
+ endif
+endf
+
+function QuoteDelim(char)
+ let line = getline('.')
+ let col = col('.')
+ if line[col - 2] == "\\"
+ "Inserting a quoted quotation mark into the string
+ return a:char
+ elseif line[col - 1] == a:char
+ "Escaping out of the string
+ return "\<Right>"
+ else
+ "Starting a string
+ return a:char.a:char."\<Esc>i"
+ endif
+endf
+
+"""折叠代码
+set foldmethod=indent
+au BufWinLeave * silent mkview  
+au BufRead * silent loadview    
+nnoremap <space> za     
+let g:SimpylFold_docstring_preview = 1
+
+" taglist
+map <silent> <F4> :TlistToggle<cr>
+
+" 快速插入
+execute pathogen#infect()
