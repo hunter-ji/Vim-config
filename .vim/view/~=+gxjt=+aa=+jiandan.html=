@@ -1,0 +1,851 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+setlocal commentstring=<!--%s-->
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=youcompleteme#CompleteFunc
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'html'
+setlocal filetype=html
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=99
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=indent
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=HtmlIndent()
+setlocal indentkeys=o,O,<Return>,<>>,{,},!^F
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'html'
+setlocal syntax=html
+endif
+setlocal tabstop=8
+setlocal tagcase=
+setlocal tags=
+setlocal termkey=
+setlocal termsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+8
+normal! zo
+16
+normal! zo
+17
+normal! zo
+17
+normal! zo
+23
+normal! zo
+32
+normal! zo
+32
+normal! zo
+32
+normal! zo
+33
+normal! zo
+37
+normal! zo
+39
+normal! zo
+54
+normal! zo
+56
+normal! zo
+61
+normal! zo
+62
+normal! zo
+65
+normal! zo
+65
+normal! zo
+67
+normal! zo
+67
+normal! zo
+68
+normal! zo
+68
+normal! zo
+70
+normal! zo
+82
+normal! zo
+92
+normal! zo
+101
+normal! zo
+101
+normal! zo
+101
+normal! zo
+101
+normal! zo
+101
+normal! zo
+101
+normal! zo
+101
+normal! zo
+101
+normal! zo
+101
+normal! zo
+101
+normal! zo
+103
+normal! zo
+113
+normal! zo
+123
+normal! zo
+132
+normal! zo
+132
+normal! zo
+132
+normal! zo
+132
+normal! zo
+132
+normal! zo
+132
+normal! zo
+132
+normal! zo
+132
+normal! zo
+132
+normal! zo
+132
+normal! zo
+134
+normal! zo
+147
+normal! zo
+147
+normal! zo
+147
+normal! zo
+147
+normal! zo
+147
+normal! zo
+158
+normal! zo
+158
+normal! zo
+164
+normal! zo
+166
+normal! zo
+168
+normal! zo
+168
+normal! zo
+168
+normal! zo
+168
+normal! zo
+168
+normal! zo
+168
+normal! zo
+168
+normal! zo
+171
+normal! zo
+176
+normal! zo
+176
+normal! zo
+176
+normal! zo
+176
+normal! zo
+176
+normal! zo
+183
+normal! zo
+184
+normal! zo
+187
+normal! zo
+189
+normal! zo
+189
+normal! zo
+189
+normal! zo
+189
+normal! zo
+189
+normal! zo
+190
+normal! zo
+190
+normal! zo
+190
+normal! zo
+190
+normal! zo
+190
+normal! zo
+190
+normal! zo
+190
+normal! zo
+190
+normal! zo
+193
+normal! zo
+193
+normal! zo
+193
+normal! zo
+193
+normal! zo
+193
+normal! zo
+193
+normal! zo
+193
+normal! zo
+201
+normal! zo
+201
+normal! zo
+201
+normal! zo
+202
+normal! zo
+203
+normal! zo
+204
+normal! zo
+205
+normal! zo
+207
+normal! zo
+212
+normal! zo
+221
+normal! zo
+221
+normal! zo
+221
+normal! zo
+221
+normal! zo
+221
+normal! zo
+221
+normal! zo
+231
+normal! zo
+233
+normal! zo
+233
+normal! zo
+233
+normal! zo
+234
+normal! zo
+234
+normal! zo
+234
+normal! zo
+234
+normal! zo
+234
+normal! zo
+234
+normal! zo
+234
+normal! zo
+234
+normal! zo
+234
+normal! zo
+234
+normal! zo
+237
+normal! zo
+237
+normal! zo
+237
+normal! zo
+237
+normal! zo
+237
+normal! zo
+237
+normal! zo
+237
+normal! zo
+246
+normal! zo
+246
+normal! zo
+253
+normal! zo
+256
+normal! zo
+256
+normal! zo
+256
+normal! zo
+256
+normal! zo
+257
+normal! zo
+258
+normal! zo
+258
+normal! zo
+258
+normal! zo
+258
+normal! zo
+258
+normal! zo
+258
+normal! zo
+258
+normal! zo
+258
+normal! zo
+258
+normal! zo
+261
+normal! zo
+261
+normal! zo
+261
+normal! zo
+261
+normal! zo
+261
+normal! zo
+262
+normal! zo
+262
+normal! zo
+262
+normal! zo
+262
+normal! zo
+262
+normal! zo
+262
+normal! zo
+262
+normal! zo
+262
+normal! zo
+262
+normal! zo
+267
+normal! zo
+267
+normal! zo
+267
+normal! zo
+268
+normal! zo
+268
+normal! zo
+271
+normal! zo
+271
+normal! zo
+273
+normal! zo
+273
+normal! zo
+273
+normal! zo
+276
+normal! zo
+280
+normal! zo
+280
+normal! zo
+280
+normal! zo
+280
+normal! zo
+280
+normal! zo
+297
+normal! zo
+301
+normal! zo
+301
+normal! zo
+303
+normal! zo
+324
+normal! zo
+324
+normal! zo
+324
+normal! zo
+324
+normal! zo
+324
+normal! zo
+333
+normal! zo
+333
+normal! zo
+336
+normal! zo
+340
+normal! zo
+340
+normal! zo
+342
+normal! zo
+347
+normal! zo
+347
+normal! zo
+349
+normal! zo
+355
+normal! zo
+357
+normal! zo
+357
+normal! zo
+357
+normal! zo
+357
+normal! zo
+358
+normal! zo
+365
+normal! zo
+365
+normal! zo
+366
+normal! zo
+366
+normal! zo
+367
+normal! zo
+374
+normal! zo
+374
+normal! zo
+375
+normal! zo
+375
+normal! zo
+376
+normal! zo
+383
+normal! zo
+383
+normal! zo
+384
+normal! zo
+384
+normal! zo
+385
+normal! zo
+392
+normal! zo
+392
+normal! zo
+393
+normal! zo
+393
+normal! zo
+394
+normal! zo
+401
+normal! zo
+401
+normal! zo
+402
+normal! zo
+402
+normal! zo
+403
+normal! zo
+410
+normal! zo
+410
+normal! zo
+413
+normal! zo
+413
+normal! zo
+417
+normal! zo
+417
+normal! zo
+422
+normal! zo
+422
+normal! zo
+423
+normal! zo
+423
+normal! zo
+425
+normal! zo
+425
+normal! zo
+427
+normal! zo
+427
+normal! zo
+429
+normal! zo
+434
+normal! zo
+441
+normal! zo
+441
+normal! zo
+441
+normal! zo
+441
+normal! zo
+442
+normal! zo
+442
+normal! zo
+444
+normal! zo
+447
+normal! zo
+447
+normal! zo
+450
+normal! zo
+450
+normal! zo
+451
+normal! zo
+451
+normal! zo
+454
+normal! zo
+454
+normal! zo
+455
+normal! zo
+455
+normal! zo
+457
+normal! zo
+462
+normal! zo
+469
+normal! zo
+471
+normal! zo
+471
+normal! zo
+472
+normal! zo
+472
+normal! zo
+474
+normal! zo
+474
+normal! zo
+476
+normal! zo
+480
+normal! zo
+480
+normal! zo
+481
+normal! zo
+485
+normal! zo
+485
+normal! zo
+486
+normal! zo
+493
+normal! zo
+493
+normal! zo
+493
+normal! zo
+493
+normal! zo
+493
+normal! zo
+495
+normal! zo
+495
+normal! zo
+496
+normal! zo
+500
+normal! zo
+501
+normal! zo
+514
+normal! zo
+517
+normal! zo
+521
+normal! zo
+533
+normal! zo
+533
+normal! zo
+533
+normal! zo
+533
+normal! zo
+553
+normal! zo
+553
+normal! zo
+553
+normal! zo
+553
+normal! zo
+556
+normal! zo
+556
+normal! zo
+556
+normal! zo
+556
+normal! zo
+556
+normal! zo
+560
+normal! zo
+560
+normal! zo
+560
+normal! zo
+560
+normal! zo
+560
+normal! zo
+570
+normal! zo
+570
+normal! zo
+571
+normal! zo
+576
+normal! zo
+576
+normal! zo
+578
+normal! zo
+580
+normal! zo
+583
+normal! zo
+590
+normal! zo
+590
+normal! zo
+593
+normal! zo
+606
+normal! zo
+612
+normal! zo
+623
+normal! zo
+623
+normal! zo
+640
+normal! zo
+641
+normal! zo
+649
+normal! zo
+655
+normal! zo
+655
+normal! zo
+657
+normal! zo
+663
+normal! zo
+663
+normal! zo
+663
+normal! zo
+665
+normal! zo
+671
+normal! zo
+671
+normal! zo
+671
+normal! zo
+677
+normal! zo
+677
+normal! zo
+679
+normal! zo
+680
+normal! zo
+693
+normal! zo
+693
+normal! zo
+697
+normal! zo
+699
+normal! zo
+700
+normal! zo
+701
+normal! zo
+709
+normal! zo
+709
+normal! zo
+709
+normal! zo
+709
+normal! zo
+714
+normal! zo
+714
+normal! zo
+714
+normal! zo
+714
+normal! zo
+724
+normal! zo
+727
+normal! zo
+728
+normal! zo
+734
+normal! zo
+741
+normal! zo
+741
+normal! zo
+742
+normal! zo
+751
+normal! zo
+768
+normal! zo
+769
+normal! zo
+793
+normal! zo
+793
+normal! zo
+793
+normal! zo
+let s:l = 205 - ((8 * winheight(0) + 7) / 14)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+205
+normal! 0155|
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :

@@ -1,0 +1,197 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+setlocal commentstring=<!--%s-->
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=youcompleteme#CompleteFunc
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'html'
+setlocal filetype=html
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=99
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=indent
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=HtmlIndent()
+setlocal indentkeys=o,O,<Return>,<>>,{,},!^F
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!pyeval('powerline.statusline(2)')
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'html'
+setlocal syntax=html
+endif
+setlocal tabstop=8
+setlocal tagcase=
+setlocal tags=
+setlocal termkey=
+setlocal termsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+43
+normal! zo
+47
+normal! zo
+50
+normal! zo
+69
+normal! zo
+94
+normal! zo
+113
+normal! zo
+116
+normal! zo
+121
+normal! zo
+127
+normal! zo
+139
+normal! zo
+171
+normal! zo
+175
+normal! zo
+186
+normal! zo
+198
+normal! zo
+258
+normal! zo
+268
+normal! zo
+286
+normal! zo
+306
+normal! zo
+326
+normal! zo
+346
+normal! zo
+361
+normal! zo
+376
+normal! zo
+391
+normal! zo
+414
+normal! zo
+422
+normal! zo
+457
+normal! zo
+492
+normal! zo
+589
+normal! zo
+597
+normal! zo
+619
+normal! zo
+627
+normal! zo
+659
+normal! zo
+667
+normal! zo
+681
+normal! zo
+689
+normal! zo
+752
+normal! zo
+774
+normal! zo
+let s:l = 772 - ((0 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+772
+normal! 0
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :

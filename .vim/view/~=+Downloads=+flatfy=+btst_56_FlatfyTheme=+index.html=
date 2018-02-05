@@ -1,0 +1,379 @@
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+argglobal
+setlocal keymap=
+setlocal noarabic
+setlocal noautoindent
+setlocal backupcopy=
+setlocal balloonexpr=
+setlocal nobinary
+setlocal nobreakindent
+setlocal breakindentopt=
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal colorcolumn=
+setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+setlocal commentstring=<!--%s-->
+setlocal complete=.,w,b,u,t,i
+setlocal concealcursor=
+setlocal conceallevel=0
+setlocal completefunc=youcompleteme#CompleteFunc
+setlocal nocopyindent
+setlocal cryptmethod=
+setlocal nocursorbind
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'html'
+setlocal filetype=html
+endif
+setlocal fixendofline
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=99
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=indent
+setlocal foldminlines=1
+setlocal foldnestmax=20
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal formatprg=
+setlocal grepprg=
+setlocal iminsert=0
+setlocal imsearch=-1
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=HtmlIndent()
+setlocal indentkeys=o,O,<Return>,<>>,{,},!^F
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+setlocal nolinebreak
+setlocal nolisp
+setlocal lispwords=
+setlocal nolist
+setlocal makeencoding=
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:],<:>
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=bin,octal,hex
+setlocal number
+setlocal numberwidth=4
+setlocal omnifunc=htmlcomplete#CompleteTags
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norelativenumber
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal signcolumn=auto
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=%!pyeval('powerline.statusline(4)')
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'html'
+setlocal syntax=html
+endif
+setlocal tabstop=8
+setlocal tagcase=
+setlocal tags=
+setlocal termkey=
+setlocal termsize=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal noundofile
+setlocal undolevels=-123456
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+9
+normal! zo
+42
+normal! zo
+42
+normal! zo
+49
+normal! zo
+49
+normal! zo
+49
+normal! zo
+50
+normal! zo
+50
+normal! zo
+53
+normal! zo
+65
+normal! zo
+67
+normal! zo
+67
+normal! zo
+68
+normal! zo
+68
+normal! zo
+69
+normal! zo
+69
+normal! zo
+79
+normal! zo
+79
+normal! zo
+81
+normal! zo
+92
+normal! zo
+92
+normal! zo
+94
+normal! zo
+94
+normal! zo
+95
+normal! zo
+102
+normal! zo
+102
+normal! zo
+123
+normal! zo
+132
+normal! zo
+162
+normal! zo
+164
+normal! zo
+166
+normal! zo
+166
+normal! zo
+171
+normal! zo
+172
+normal! zo
+172
+normal! zo
+172
+normal! zo
+172
+normal! zo
+175
+normal! zo
+175
+normal! zo
+175
+normal! zo
+175
+normal! zo
+187
+normal! zo
+187
+normal! zo
+187
+normal! zo
+188
+normal! zo
+189
+normal! zo
+189
+normal! zo
+189
+normal! zo
+189
+normal! zo
+189
+normal! zo
+189
+normal! zo
+189
+normal! zo
+190
+normal! zo
+190
+normal! zo
+191
+normal! zo
+198
+normal! zo
+199
+normal! zo
+199
+normal! zo
+199
+normal! zo
+199
+normal! zo
+202
+normal! zo
+202
+normal! zo
+202
+normal! zo
+202
+normal! zo
+211
+normal! zo
+213
+normal! zo
+215
+normal! zo
+215
+normal! zo
+220
+normal! zo
+221
+normal! zo
+221
+normal! zo
+221
+normal! zo
+221
+normal! zo
+224
+normal! zo
+224
+normal! zo
+224
+normal! zo
+224
+normal! zo
+236
+normal! zo
+239
+normal! zo
+239
+normal! zo
+240
+normal! zo
+240
+normal! zo
+242
+normal! zo
+246
+normal! zo
+246
+normal! zo
+246
+normal! zo
+246
+normal! zo
+247
+normal! zo
+247
+normal! zo
+249
+normal! zo
+249
+normal! zo
+250
+normal! zo
+250
+normal! zo
+251
+normal! zo
+263
+normal! zo
+263
+normal! zo
+264
+normal! zo
+264
+normal! zo
+267
+normal! zo
+271
+normal! zo
+271
+normal! zo
+272
+normal! zo
+272
+normal! zo
+273
+normal! zo
+273
+normal! zo
+277
+normal! zo
+283
+normal! zo
+283
+normal! zo
+283
+normal! zo
+283
+normal! zo
+288
+normal! zo
+296
+normal! zo
+296
+normal! zo
+296
+normal! zo
+296
+normal! zo
+297
+normal! zo
+297
+normal! zo
+298
+normal! zo
+298
+normal! zo
+302
+normal! zo
+308
+normal! zo
+308
+normal! zo
+308
+normal! zo
+308
+normal! zo
+313
+normal! zo
+325
+normal! zo
+327
+normal! zo
+338
+normal! zo
+let s:l = 84 - ((14 * winheight(0) + 18) / 36)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+84
+normal! 033|
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+" vim: set ft=vim :
