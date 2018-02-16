@@ -23,15 +23,6 @@ filetype plugin indent on
 let mapleader = ","
 let g:mapleader = ","
 
-" 系统剪切板
-set clipboard=unnamed
-
-" split navigations
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 set nu
 set encoding=utf-8
 :set tabstop=8 expandtab shiftwidth=4 softtabstop=4
@@ -176,11 +167,6 @@ inoremap <esc> <esc>l
 inoremap jk <esc>l
 
 " 滚屏 
-nnoremap <c-h> zh
-nnoremap <c-l> zl
-nnoremap <c-j> <c-e>
-nnoremap <c-k> <c-y>
-
 inoremap <c-h> <left>
 inoremap <c-l> <right>
 inoremap <c-j> <down>
@@ -192,3 +178,12 @@ cnoremap <c-j> <down>
 
 " vim-jinja
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+
+" split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" 系统剪切板
+set clipboard=unnamedplus
