@@ -32,7 +32,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
-Plugin 'python.vim'                                             
+Plugin 'python.vim'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'junegunn/vim-easy-align'
 Plugin 'scrooloose/nerdcommenter'
@@ -51,9 +51,9 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_python_binary_path = '/usr/bin/python'
 
 let g:ycm_global_ycm_extra_conf = '~/.vim/data/ycm/.ycm_extra_conf.py'
-" 不显示开启vim时检查ycm_extra_conf文件的信息  
+" 不显示开启vim时检查ycm_extra_conf文件的信息
 let g:ycm_confirm_extra_conf=0
-" 开启基于tag的补全，可以在这之后添加需要的标签路径  
+" 开启基于tag的补全，可以在这之后添加需要的标签路径
 let g:ycm_collect_identifiers_from_tags_files=1
 "注释和字符串中的文字也会被收入补全
 let g:ycm_collect_identifiers_from_comments_and_strings = 0
@@ -62,7 +62,7 @@ let g:ycm_min_num_of_chars_for_completion=2
 " 禁止缓存匹配项,每次都重新生成匹配项
 let g:ycm_cache_omnifunc=0
 " 开启语义补全
-let g:ycm_seed_identifiers_with_syntax=1	
+let g:ycm_seed_identifiers_with_syntax=1
 "在注释输入中也能补全
 let g:ycm_complete_in_comments = 1
 "在字符串输入中也能补全
@@ -155,9 +155,9 @@ endf
 
 """折叠代码
 set foldmethod=indent
-au BufWinLeave * silent mkview  
-au BufRead * silent loadview    
-nnoremap <space> za     
+au BufWinLeave * silent mkview
+au BufRead * silent loadview
+nnoremap <space> za
 let g:SimpylFold_docstring_preview = 1
 
 " taglist
@@ -176,10 +176,10 @@ autocmd InsertEnter * set nocursorline
 autocmd InsertLeave * set cursorline
 
 " 快速跳转
-let g:ctrlp_map = '<c-p>' 
+let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-    " 设置过滤不进行查找的后缀名 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|pyc)$' 
+    " 设置过滤不进行查找的后缀名
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|pyc)$'
 
 " 替换esc为jk
 inoremap <esc> <esc>l
@@ -206,3 +206,10 @@ nnoremap <C-H> <C-W><C-H>
 
 " 系统剪切板
 set clipboard=unnamedplus
+
+" 显示空白格
+highlight WhitespaceEOL ctermbg=red guibg=red
+match WhitespaceEOL /\s\+$/
+
+" 去除尾末空白格
+map <silent> <F6> :%s= *$==<cr>
