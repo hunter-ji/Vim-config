@@ -18,6 +18,7 @@
 * Plugin 'mattn/emmet-vim'
 * Plugin 'scrooloose/syntastic'
 * Plugin 'lepture/vim-jinja'
+* Plugin 'terryma/vim-expand-region'
 
 ### 其他功能
 

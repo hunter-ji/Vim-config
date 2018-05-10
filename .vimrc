@@ -1,6 +1,6 @@
 syntax on
 
-" irline
+" airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
@@ -44,6 +44,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'lepture/vim-jinja'
+Plugin 'terryma/vim-expand-region'
 
 " ycm
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -89,6 +90,7 @@ endf
 autocmd bufnewfile *.py call HeaderPython()
 
 autocmd bufnewfile *.html 0r ~/.vim/template/simple.html
+autocmd bufnewfile *.go 0r ~/.vim/template/simple.go
 """autocmd bufnewfile *.md 0r ~/.vim/template/simple.md
 """autocmd bufnewfile *.js 0r ~/.vim/template/simple.js
 
@@ -185,7 +187,7 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|pyc)$'
 inoremap <esc> <esc>l
 inoremap jk <esc>l
 
-" 滚屏 
+" 滚屏
 inoremap <c-h> <left>
 inoremap <c-l> <right>
 inoremap <c-j> <down>
@@ -213,3 +215,7 @@ match WhitespaceEOL /\s\+$/
 
 " 去除尾末空白格
 map <silent> <F6> :%s= *$==<cr>
+
+" 区域选中
+vmap v <Plug>(expand_region_expand)
+vmap V <Plug>(expand_region_shrink)
