@@ -81,6 +81,7 @@ let g:netrw_home='~/bak'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | end
 
 " 文件格式
+" python的格式
 function HeaderPython()
     call setline(1, "#!/usr/bin/python")
     call append(1, "# -*- coding: utf-8 -*-")
@@ -91,6 +92,7 @@ autocmd bufnewfile *.py call HeaderPython()
 
 autocmd bufnewfile *.html 0r ~/.vim/template/simple.html
 autocmd bufnewfile *.go 0r ~/.vim/template/simple.go
+autocmd bufnewfile *.c 0r ~/.vim/template/simple.c
 """autocmd bufnewfile *.md 0r ~/.vim/template/simple.md
 """autocmd bufnewfile *.js 0r ~/.vim/template/simple.js
 
@@ -219,3 +221,7 @@ map <silent> <F6> :%s= *$==<cr>
 " 区域选中
 vmap v <Plug>(expand_region_expand)
 vmap V <Plug>(expand_region_shrink)
+
+if exists("&indentexpr")
+  :set indentexpr=
+endif
