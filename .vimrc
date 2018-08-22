@@ -225,3 +225,6 @@ vmap V <Plug>(expand_region_shrink)
 if exists("&indentexpr")
   :set indentexpr=
 endif
+
+" vim剪切板
+map <F2> :reg<CR>
