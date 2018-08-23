@@ -2,6 +2,7 @@
 
 ### 插件
 
+* Plugin 'VundleVim/Vundle.vim'
 * Plugin 'Valloric/YouCompleteMe'
 * Plugin 'flazz/vim-colorschemes'
 * Plugin 'godlygeek/tabular'
