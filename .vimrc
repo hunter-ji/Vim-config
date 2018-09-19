@@ -4,12 +4,14 @@ syntax on
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='base16'
+"" 配色
+" let g:airline_theme="molokai"
 " airline的buffers切换ctrl+b+p/n
-nnoremap <C-N> :bn<CR>
-nnoremap <C-P> :bp<CR>
-
-" 配色
-let g:airline_theme="molokai"
+nnoremap <C-M> :bn<CR>
+nnoremap <C-N> :bp<CR>
 
 " set nocompatible
 set modeline
@@ -33,7 +35,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'python.vim'
-Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'junegunn/vim-easy-align'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tmhedberg/SimpylFold'
@@ -69,7 +72,9 @@ let g:ycm_complete_in_comments = 1
 "在字符串输入中也能补全
 let g:ycm_complete_in_strings = 1
 
-colorscheme molokai
+" colorscheme molokai
+colorscheme gruvbox
+set bg=dark
 " F3 NERDTree 切换
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
@@ -117,7 +122,8 @@ set foldlevel=99
 
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
-inoremap { {<CR>}<Esc>O
+inoremap { {}<Esc>i
+"inoremap { {<CR>}<Esc>O
 autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
@@ -226,5 +232,4 @@ if exists("&indentexpr")
   :set indentexpr=
 endif
 
-" vim剪切板
 map <F2> :reg<CR>
