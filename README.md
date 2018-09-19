@@ -8,7 +8,8 @@
 * Plugin 'godlygeek/tabular'
 * Plugin 'plasticboy/vim-markdown'
 * Plugin 'python.vim'
-* Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+* Plugin 'vim-airline/vim-airline'
+* Plugin 'vim-airline/vim-airline-themes'
 * Plugin 'junegunn/vim-easy-align'
 * Plugin 'scrooloose/nerdcommenter'
 * Plugin 'tmhedberg/SimpylFold'
@@ -35,4 +36,3 @@
 * html,md,py等文件使用自定义模板
 * 显示句末空白格,映射快捷键使其全部去除
 * 映射`F2`显示系统剪切板
-

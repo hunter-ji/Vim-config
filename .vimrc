@@ -6,8 +6,8 @@ let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
+" airline主题
 let g:airline_theme='base16'
-"" 配色
 " let g:airline_theme="molokai"
 " airline的buffers切换ctrl+b+p/n
 nnoremap <C-M> :bn<CR>
