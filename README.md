@@ -1,31 +1,32 @@
-## 我的vim配置文件
+## Kuari的vim配置文件
 
 ### 插件
 
-* Plugin 'VundleVim/Vundle.vim'
-* Plugin 'Valloric/YouCompleteMe'
-* Plugin 'flazz/vim-colorschemes'
-* Plugin 'godlygeek/tabular'
-* Plugin 'plasticboy/vim-markdown'
-* Plugin 'python.vim'
-* Plugin 'vim-airline/vim-airline'
-* Plugin 'vim-airline/vim-airline-themes'
-* Plugin 'junegunn/vim-easy-align'
-* Plugin 'scrooloose/nerdcommenter'
-* Plugin 'tmhedberg/SimpylFold'
-* Plugin 'tpope/vim-surround'
-* Plugin 'othree/html5.vim'
-* Plugin 'ekalinin/Dockerfile.vim'
-* Plugin 'kien/ctrlp.vim'
-* Plugin 'mattn/emmet-vim'
-* Plugin 'scrooloose/syntastic'
-* Plugin 'lepture/vim-jinja'
-* Plugin 'terryma/vim-expand-region'
+* Plugin 'VundleVim/Vundle.vim'             vim插件管理
+* Plugin 'Valloric/YouCompleteMe'           代码补全插件
+* Plugin 'flazz/vim-colorschemes'           vim配色
+* Plugin 'godlygeek/tabular'                快速对齐
+* Plugin 'plasticboy/vim-markdown'          markdown
+* Plugin 'python.vim'                       python
+* Plugin 'vim-airline/vim-airline'          airline状态栏
+* Plugin 'vim-airline/vim-airline-themes'   airline主题
+* Plugin 'junegunn/vim-easy-align'          快速格式化
+* Plugin 'scrooloose/nerdcommenter'         快速注释
+* Plugin 'tmhedberg/SimpylFold'             代码折叠
+* Plugin 'tpope/vim-surround'               快速修改成对符号
+* Plugin 'othree/html5.vim'                 html5
+* Plugin 'ekalinin/Dockerfile.vim'          Dockerfile
+* Plugin 'kien/ctrlp.vim'                   快速搜索
+* Plugin 'mattn/emmet-vim'                  快速生成html语句
+* Plugin 'scrooloose/syntastic'             检查语法
+* Plugin 'lepture/vim-jinja'                jinjia
+* Plugin 'terryma/vim-expand-region'        VISUAL模式快速选中
 
 ### 其他功能
 
-* 配色为`molokai`
-* `tab`键为4格
+* vim配色为`gruvbox`
+* airline主题为`base16`
+* `tab`键映射为4个空格
 * 自动补全括号
 * `Ctrl+d/u`滚屏
 * `Ctrl+hjkl`切换分屏
