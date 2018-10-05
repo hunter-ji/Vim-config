@@ -1,17 +1,15 @@
 syntax on
+set nu
+set encoding=utf-8
+:set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+set pastetoggle=<F8>
+let mapleader = ","
+let g:mapleader = ","
 
-" airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_powerline_fonts = 1
-" airline主题
-let g:airline_theme='base16'
-" let g:airline_theme="molokai"
-" airline的buffers切换ctrl+b+p/n
-nnoremap <C-M> :bn<CR>
-nnoremap <C-N> :bp<CR>
+" 开启文件类型侦测
+filetype on
+" 根据侦测到的不同类型加载对应的插件
+filetype plugin on
 
 " set nocompatible
 set modeline
@@ -21,14 +19,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 call vundle#end()
 filetype plugin indent on
-
-let mapleader = ","
-let g:mapleader = ","
-
-set nu
-set encoding=utf-8
-:set tabstop=8 expandtab shiftwidth=4 softtabstop=4
-set pastetoggle=<F8>
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
@@ -46,8 +36,24 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'lepture/vim-jinja'
+" Plugin 'lepture/vim-jinja'
 Plugin 'terryma/vim-expand-region'
+Plugin 'suan/vim-instant-markdown'
+Plugin 'easymotion/vim-easymotion'
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline_powerline_fonts = 1
+"" airline主题
+let g:airline_theme='base16'
+" let g:airline_theme="molokai"
+" airline的buffers切换ctrl+b+p/n
+nnoremap <C-M> :bn<CR>
+nnoremap <C-N> :bp<CR>
+
 
 " ycm
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -71,10 +77,13 @@ let g:ycm_seed_identifiers_with_syntax=1
 let g:ycm_complete_in_comments = 1
 "在字符串输入中也能补全
 let g:ycm_complete_in_strings = 1
+" 引入 C++ 标准库tags
+set tags+=/data/misc/software/misc./vim/stdcpp.tags
 
 " colorscheme molokai
 colorscheme gruvbox
 set bg=dark
+
 " F3 NERDTree 切换
 map <F3> :NERDTreeMirror<CR>
 map <F3> :NERDTreeToggle<CR>
@@ -101,11 +110,14 @@ autocmd bufnewfile *.c 0r ~/.vim/template/simple.c
 """autocmd bufnewfile *.md 0r ~/.vim/template/simple.md
 """autocmd bufnewfile *.js 0r ~/.vim/template/simple.js
 
+
 """Markdown
 let g:vim_markdown_folding_style_pythonic = 1
 
+
 """直接运行python
 map <F5> :!python3 %<CR>
+
 
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
@@ -119,6 +131,7 @@ let g:NERDSpaceDelims = 1
 
 set foldmethod=indent
 set foldlevel=99
+
 
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
@@ -163,6 +176,7 @@ function QuoteDelim(char)
  endif
 endf
 
+
 """折叠代码
 set foldmethod=indent
 au BufWinLeave * silent mkview
@@ -170,20 +184,15 @@ au BufRead * silent loadview
 nnoremap <space> za
 let g:SimpylFold_docstring_preview = 1
 
+
 " taglist
 map <silent> <F4> :TlistToggle<cr>
+let Tlist_Use_Right_Window=1
+let Tlist_File_Fold_Auto_Close=1
+let Tlist_Exit_OnlyWindow=1
 
 " 快速插入
 execute pathogen#infect()
-
-" 进入窗口高亮当前行
-autocmd WinEnter * set cursorline
-" 离开窗口取消高亮
-autocmd WinLeave * set nocursorline
-" 插入模式取消高亮
-autocmd InsertEnter * set nocursorline
-" 离开插入模式恢复高亮
-autocmd InsertLeave * set cursorline
 
 " 快速跳转
 let g:ctrlp_map = '<c-p>'
@@ -206,7 +215,7 @@ cnoremap <c-l> <right>
 cnoremap <c-j> <down>
 
 " vim-jinja
-au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
+" au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
 
 " split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -233,3 +242,28 @@ if exists("&indentexpr")
 endif
 
 map <F2> :reg<CR>
+
+" 进入窗口高亮当前行
+autocmd WinEnter * set cursorline
+" 离开窗口取消高亮
+autocmd WinLeave * set nocursorline
+" 插入模式取消高亮
+autocmd InsertEnter * set nocursorline
+" 离开插入模式恢复高亮
+autocmd InsertLeave * set cursorline
+
+" easymotion/vim-easymotion 快速移动
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
