@@ -1,5 +1,8 @@
 ## Kuari的vim配置文件
 
+### 截图
+![my_vim](vimexample.png)
+
 ### 插件
 
 * Plugin 'VundleVim/Vundle.vim'
@@ -21,6 +24,12 @@
 * Plugin 'scrooloose/syntastic'
 * Plugin 'lepture/vim-jinja'
 * Plugin 'terryma/vim-expand-region'
+* Plugin 'suan/vim-instant-markdown'
+* Plugin 'easymotion/vim-easymotion'
+* Plugin 'SirVer/ultisnips'
+* Plugin 'honza/vim-snippets'
+* Plugin 'VimIM'
+
 
 ### 其他功能
 
