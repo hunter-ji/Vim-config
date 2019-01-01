@@ -2,6 +2,8 @@ syntax on
 set nu
 set encoding=utf-8
 :set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+autocmd Syntax go,vim :set tabstop=8 expandtab shiftwidth=8 softtabstop=8
+autocmd Syntax html,vim :set tabstop=8 expandtab shiftwidth=2 softtabstop=2
 set pastetoggle=<F8>
 let mapleader = ","
 let g:mapleader = ","
@@ -38,6 +40,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'VimIM'
+Plugin 'pangloss/vim-javascript'
+Plugin 'fatih/vim-go'
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -103,7 +107,6 @@ endf
 autocmd bufnewfile *.py call HeaderPython()
 
 autocmd bufnewfile *.html 0r ~/.vim/template/simple.html
-autocmd bufnewfile *.go 0r ~/.vim/template/simple.go
 autocmd bufnewfile *.c 0r ~/.vim/template/simple.c
 """autocmd bufnewfile *.md 0r ~/.vim/template/simple.md
 """autocmd bufnewfile *.js 0r ~/.vim/template/simple.js
@@ -113,7 +116,7 @@ autocmd bufnewfile *.c 0r ~/.vim/template/simple.c
 let g:vim_markdown_folding_style_pythonic = 1
 
 
-"""直接运行python
+" 直接运行python
 map <F5> :!python3 %<CR>
 
 
@@ -134,7 +137,8 @@ set foldlevel=99
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
-"inoremap { {<CR>}<Esc>O
+" inoremap { {<CR>}<Esc>O
+autocmd Syntax html,go,js,vim inoremap { {<CR>}<Esc>O
 autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
@@ -275,3 +279,12 @@ let g:UltiSnipsEditSplit="vertical"
 " VimIm
 let g:Vimim_cloud=-1
 let g:vimim_double_pinyin_plusplus=1
+
+" vim-javascript
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END

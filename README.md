@@ -29,6 +29,8 @@
 * Plugin 'SirVer/ultisnips'
 * Plugin 'honza/vim-snippets'
 * Plugin 'VimIM'
+* Plugin 'pangloss/vim-javascript'
+* Plugin 'fatih/vim-go'
 
 
 ### 其他功能
@@ -46,3 +48,4 @@
 * html,md,py等文件使用自定义模板
 * 显示句末空白格,映射快捷键使其全部去除
 * 映射`F2`显示系统剪切板
+* 部分细节根据打开文件不同而作用于不同的编程语言
