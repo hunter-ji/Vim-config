@@ -50,7 +50,9 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
 "" airline主题
-let g:airline_theme='base16'
+"let g:airline_theme='base16'
+let g:airline_theme='biogoo'
+"let base16colorspace=256
 " let g:airline_theme="molokai"
 " airline的buffers切换ctrl+b+p/n
 nnoremap <C-M> :bn<CR>
@@ -138,6 +140,7 @@ inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap { {}<Esc>i
 " inoremap { {<CR>}<Esc>O
+autocmd Syntax html,go,js,vim inoremap } {}<Esc>i
 autocmd Syntax html,go,js,vim inoremap { {<CR>}<Esc>O
 autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>

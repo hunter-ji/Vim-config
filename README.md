@@ -37,6 +37,7 @@
 
 * vim配色为`gruvbox`
 * airline主题为`base16`
+* 字体为`mononki`
 * `tab`键映射为4个空格
 * 自动补全括号
 * `Ctrl+d/u`滚屏
