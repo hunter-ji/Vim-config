@@ -31,7 +31,12 @@
 * Plugin 'VimIM'
 * Plugin 'pangloss/vim-javascript'
 * Plugin 'fatih/vim-go'
-
+* Plugin 'kuari/i3window_sw'
+* Plugin 'posva/vim-vue'
+* Plugin 'Yggdroot/indentLine'
+* Plugin 'alvan/vim-closetag'
+* Plugin 'sheerun/vim-polyglot'
+* Plugin 'justinmk/vim-syntax-extra'
 
 ### 其他功能
 
@@ -50,3 +55,10 @@
 * 显示句末空白格,映射快捷键使其全部去除
 * 映射`F2`显示系统剪切板
 * 部分细节根据打开文件不同而作用于不同的编程语言
+* 81列处显示提醒
+* 搜索时忽略大小写
+* 高亮搜索结果并且即时显示
+* 替换时缺省启用g
+* 切换缓存不需要保存
+* 缩写快捷显示名字、邮箱等信息
+* 输入模式下退格键可以退一切字符

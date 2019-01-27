@@ -2,11 +2,12 @@ syntax on
 set nu
 set encoding=utf-8
 :set tabstop=8 expandtab shiftwidth=4 softtabstop=4
-autocmd Syntax go,vim :set tabstop=8 expandtab shiftwidth=8 softtabstop=8
-autocmd Syntax html,vim :set tabstop=8 expandtab shiftwidth=2 softtabstop=2
-set pastetoggle=<F8>
+autocmd Syntax go :set tabstop=8 expandtab shiftwidth=8 softtabstop=8
+autocmd Syntax html :set tabstop=8 expandtab shiftwidth=2 softtabstop=2
+" set pastetoggle=<F8>
 let mapleader = ","
 let g:mapleader = ","
+let g:pymode_python = 'python3'
 
 " set nocompatible
 set modeline
@@ -16,6 +17,41 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 call vundle#end()
 filetype plugin indent on
+
+set scrolloff=7
+set wildmenu
+set wildmode="list:longest"
+set ruler
+" 命令行高度为两行
+" set cmdheight=2
+
+set lazyredraw
+" 切换缓存时不用保存
+set hidden
+" 输入模式下，退格键可以退一切字符
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+" 搜索时忽略大小写，有大写时不忽略
+set ignorecase
+set smartcase
+
+" 高亮搜索结果并即时显示
+set incsearch
+set hlsearch
+map <silent> <leader><CR> :nohlsearch<CR>
+
+" 替换时缺省启用g
+set gdefault
+
+" 缩写显示名字、邮箱和日期时间
+iabbrev xname Kuari
+iabbrev xmail kuari@justmylife.cc
+iabbrev xfile <c-r>=expand("%:t")<CR>
+if exists("*strftime")
+    iabbrev xdate <c-r>=strftime("%Y-%m-%d")<CR>
+    iabbrev xtime <c-r>=strftime("%H:%M:%S")<CR>
+endif
 
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
@@ -33,7 +69,6 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/syntastic'
-" Plugin 'lepture/vim-jinja'
 Plugin 'terryma/vim-expand-region'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'easymotion/vim-easymotion'
@@ -42,6 +77,12 @@ Plugin 'honza/vim-snippets'
 Plugin 'VimIM'
 Plugin 'pangloss/vim-javascript'
 Plugin 'fatih/vim-go'
+Plugin 'kuari/i3window_sw'
+Plugin 'posva/vim-vue'
+Plugin 'Yggdroot/indentLine'
+Plugin 'alvan/vim-closetag'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'justinmk/vim-syntax-extra'
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -219,9 +260,6 @@ cnoremap <c-h> <left>
 cnoremap <c-l> <right>
 cnoremap <c-j> <down>
 
-" vim-jinja
-" au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
-
 " split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -263,7 +301,7 @@ map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
 
 " s{char}{char} to move to {char}{char}
-nmap s <Plug>(easymotion-overwin-f2)
+map <c-\> <Plug>(easymotion-overwin-f2)
 " Move to line
 map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
@@ -291,3 +329,29 @@ augroup javascript_folding
     au!
     au FileType javascript setlocal foldmethod=syntax
 augroup END
+
+map <F7> :Separate<CR>
+map <F8> :Merge<CR>
+
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+let g:closetag_filetypes = 'html,xhtml,phtml'
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+
+au FileType c,cpp,python,vim set textwidth=80
+set colorcolumn=81
