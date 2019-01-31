@@ -1,10 +1,18 @@
 syntax on
 set nu
+set t_Co=256
 set encoding=utf-8
-:set tabstop=8 expandtab shiftwidth=4 softtabstop=4
-autocmd Syntax go :set tabstop=8 expandtab shiftwidth=8 softtabstop=8
-autocmd Syntax html :set tabstop=8 expandtab shiftwidth=2 softtabstop=2
-" set pastetoggle=<F8>
+" :set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+" autocmd Syntax go :set tabstop=8 expandtab shiftwidth=8 softtabstop=8
+" autocmd Syntax html :set tabstop=8 expandtab shiftwidth=2 softtabstop=2
+" 先设置缺省情况，然后根据不同文件类型再次重新设置
+set expandtab | set tabstop=4 | set shiftwidth=4  " Python, CSS, etc.
+" 对 C/C++ 等，制表符和缩进都是两个空格
+au FileType c,cpp,html,htmldjango,lua,javascript,nsis,go
+    \ set expandtab | set tabstop=2 | set shiftwidth=2
+" Makefile 必须保留制表符，且习惯上占八个空格
+au FileType make set noexpandtab | set tabstop=8 | set shiftwidth=8" set pastetoggle=<F8>
+
 let mapleader = ","
 let g:mapleader = ","
 let g:pymode_python = 'python3'
@@ -18,19 +26,9 @@ Plugin 'VundleVim/Vundle.vim'
 call vundle#end()
 filetype plugin indent on
 
-set scrolloff=7
-set wildmenu
-set wildmode="list:longest"
-set ruler
-" 命令行高度为两行
-" set cmdheight=2
-
 set lazyredraw
 " 切换缓存时不用保存
 set hidden
-" 输入模式下，退格键可以退一切字符
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
 
 " 搜索时忽略大小写，有大写时不忽略
 set ignorecase
@@ -53,10 +51,16 @@ if exists("*strftime")
     iabbrev xtime <c-r>=strftime("%H:%M:%S")<CR>
 endif
 
+" 不用交换文件
+set noswapfile
+
+" 检测文件编码时，优先考虑 UTF-8
+set fileencodings=utf-8,ucs-bom,gbk,gb2312,big5,latin1
+
+set nowrap
+
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'python.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -70,7 +74,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'terryma/vim-expand-region'
-Plugin 'suan/vim-instant-markdown'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -83,6 +86,7 @@ Plugin 'Yggdroot/indentLine'
 Plugin 'alvan/vim-closetag'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'justinmk/vim-syntax-extra'
+Plugin 'hail2u/vim-css3-syntax'
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
@@ -93,12 +97,12 @@ let g:airline_powerline_fonts = 1
 "" airline主题
 "let g:airline_theme='base16'
 let g:airline_theme='biogoo'
+"let g:airline_theme='gruvbox'
 "let base16colorspace=256
 " let g:airline_theme="molokai"
 " airline的buffers切换ctrl+b+p/n
 nnoremap <C-M> :bn<CR>
 nnoremap <C-N> :bp<CR>
-
 
 " ycm
 let g:ycm_autoclose_preview_window_after_completion=1
@@ -128,6 +132,7 @@ set tags+=/data/misc/software/misc./vim/stdcpp.tags
 " colorscheme molokai
 colorscheme gruvbox
 set bg=dark
+au BufEnter * :syntax sync fromstart
 
 " F3 NERDTree 切换
 map <F3> :NERDTreeMirror<CR>
@@ -151,17 +156,11 @@ autocmd bufnewfile *.py call HeaderPython()
 
 autocmd bufnewfile *.html 0r ~/.vim/template/simple.html
 autocmd bufnewfile *.c 0r ~/.vim/template/simple.c
-"""autocmd bufnewfile *.md 0r ~/.vim/template/simple.md
-"""autocmd bufnewfile *.js 0r ~/.vim/template/simple.js
-
-
-"""Markdown
-let g:vim_markdown_folding_style_pythonic = 1
-
+" autocmd bufnewfile *.md 0r ~/.vim/template/simple.md
+" autocmd bufnewfile *.js 0r ~/.vim/template/simple.js
 
 " 直接运行python
 map <F5> :!python3 %<CR>
-
 
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
@@ -172,18 +171,18 @@ let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String']
 
 let g:NERDSpaceDelims = 1
 
-
 set foldmethod=indent
 set foldlevel=99
 
-
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
+inoremap [[ [<CR>]<Esc>O
 inoremap { {}<Esc>i
-" inoremap { {<CR>}<Esc>O
-autocmd Syntax html,go,js,vim inoremap } {}<Esc>i
-autocmd Syntax html,go,js,vim inoremap { {<CR>}<Esc>O
-autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
+inoremap { {}<Esc>i
+inoremap {{ {<CR>}<Esc>O
+" autocmd Syntax html,go,js,vim inoremap } {}<Esc>i
+" autocmd Syntax html,go,js,vim inoremap { {<CR>}<Esc>O
+" autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
 inoremap } <c-r>=CloseBracket()<CR>
@@ -222,14 +221,12 @@ function QuoteDelim(char)
  endif
 endf
 
-
 """折叠代码
 set foldmethod=indent
 au BufWinLeave * silent mkview
 au BufRead * silent loadview
 nnoremap <space> za
 let g:SimpylFold_docstring_preview = 1
-
 
 " taglist
 map <silent> <F4> :TlistToggle<cr>
@@ -355,3 +352,4 @@ let g:closetag_close_shortcut = '<leader>>'
 
 au FileType c,cpp,python,vim set textwidth=80
 set colorcolumn=81
+

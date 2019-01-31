@@ -8,8 +8,6 @@
 * Plugin 'VundleVim/Vundle.vim'
 * Plugin 'Valloric/YouCompleteMe'
 * Plugin 'flazz/vim-colorschemes'
-* Plugin 'godlygeek/tabular'
-* Plugin 'plasticboy/vim-markdown'
 * Plugin 'python.vim'
 * Plugin 'vim-airline/vim-airline'
 * Plugin 'vim-airline/vim-airline-themes'
@@ -37,11 +35,12 @@
 * Plugin 'alvan/vim-closetag'
 * Plugin 'sheerun/vim-polyglot'
 * Plugin 'justinmk/vim-syntax-extra'
+* Plugin 'hail2u/vim-css3-syntax'
 
 ### 其他功能
 
 * vim配色为`gruvbox`
-* airline主题为`base16`
+* airline主题为`biogoo`
 * 字体为`mononki`
 * `tab`键映射为4个空格
 * 自动补全括号
@@ -54,11 +53,10 @@
 * html,md,py等文件使用自定义模板
 * 显示句末空白格,映射快捷键使其全部去除
 * 映射`F2`显示系统剪切板
-* 部分细节根据打开文件不同而作用于不同的编程语言
+* 括号连续输入两个转行
 * 81列处显示提醒
 * 搜索时忽略大小写
 * 高亮搜索结果并且即时显示
 * 替换时缺省启用g
 * 切换缓存不需要保存
 * 缩写快捷显示名字、邮箱等信息
-* 输入模式下退格键可以退一切字符
