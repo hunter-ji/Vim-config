@@ -43,6 +43,16 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" 切换上下建为Ctrl+hjkl
+inoremap <c-h> <left>
+inoremap <c-l> <right>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+
+cnoremap <c-h> <left>
+cnoremap <c-l> <right>
+cnoremap <c-j> <down>
+
 " airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
@@ -50,6 +60,9 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='biogoo'
+" 切换buffer
+nnoremap <C-M> :bn<CR>
+nnoremap <C-N> :bp<CR>
 
 " 替换esc为jk
 inoremap jk <esc>
@@ -100,6 +113,7 @@ let g:ycm_complete_in_strings = 1
 " 引入 C++ 标准库tags
 set tags+=/data/misc/software/misc./vim/stdcpp.tags
 
+" closetag
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
@@ -132,7 +146,6 @@ let g:UltiSnipsEditSplit="vertical"
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
-
 " s{char}{char} to move to {char}{char}
 map <c-\> <Plug>(easymotion-overwin-f2)
 " Move to line
@@ -224,5 +237,3 @@ autocmd WinLeave * set nocursorline
 autocmd InsertEnter * set nocursorline
 " 离开插入模式恢复高亮
 autocmd InsertLeave * set cursorline
-
-
