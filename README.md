@@ -27,6 +27,10 @@
 * Plug 'ap/vim-css-color'
 * Plug 'kien/ctrlp.vim'
 * Plug 'majutsushi/tagbar'
+* Plug 'terryma/vim-multiple-cursors'
+* Plug 'jvanja/vim-bootstrap4-snippets'
+* Plug 'othree/html5.vim'
+* Plug 'vim-scripts/indentpython.vim'
 
 ### 插件介绍
 
@@ -54,6 +58,10 @@
 | vim-css-color | css颜色显示 | |
 | ctrlp.vim | 文件搜索 | Ctrl+p |
 | tagbar | 大纲导航 | F9 |
+| vim-multiple-cursors | 多光标操作 | Ctrl+n, Ctrl+p |
+| vim-bootstrap4-snippets | BootStrap4代码块 |  |
+| html5.vim | HTML5增强 |  |
+| indentpython.vim | Python缩进增强 |  |
 
 ##### 注：相关插件的介绍与作用还需要去相应的主页了解。
 

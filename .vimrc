@@ -22,6 +22,11 @@ Plug 'vim-scripts/taglist.vim'
 Plug 'ap/vim-css-color'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'jvanja/vim-bootstrap4-snippets'
+"Plug 'python-mode/python-mode', { 'branch': 'develop' }
+Plug 'othree/html5.vim'
+Plug 'vim-scripts/indentpython.vim'
 
 call plug#end()
 
@@ -34,8 +39,10 @@ set nu
 filetype plugin indent on
 set encoding=utf-8
 :set tabstop=8 expandtab shiftwidth=4 softtabstop=4
+au BufNewFile,BufRead *.py :set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+
+au BufNewFile,BufRead *.js, *.html, *.css, *.yml :set tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Syntax go :set tabstop=8 expandtab shiftwidth=8 softtabstop=8
-autocmd Syntax html :set tabstop=8 expandtab shiftwidth=2 softtabstop=2
 
 " split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -60,9 +67,12 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline_powerline_fonts = 1
 let g:airline_theme='biogoo'
+
 " 切换buffer
 nnoremap <C-M> :bn<CR>
-nnoremap <C-N> :bp<CR>
+" nnoremap <C-N> :bp<CR>
+" 切换缓存时不用保存
+" set hidden
 
 " 替换esc为jk
 inoremap jk <esc>
@@ -71,9 +81,6 @@ inoremap jk <esc>
 colorscheme gruvbox
 set bg=dark
 au BufEnter * :syntax sync fromstart
-
-" 切换缓存时不用保存
-set hidden
 
 " 实时搜索
 set incsearch
@@ -93,7 +100,7 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_python_binary_path = '/usr/bin/python'
 
-let g:ycm_global_ycm_extra_conf = '~/.vim/data/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 " 不显示开启vim时检查ycm_extra_conf文件的信息
 let g:ycm_confirm_extra_conf=0
 " 开启基于tag的补全，可以在这之后添加需要的标签路径
@@ -105,7 +112,7 @@ let g:ycm_min_num_of_chars_for_completion=2
 " 禁止缓存匹配项,每次都重新生成匹配项
 let g:ycm_cache_omnifunc=0
 " 开启语义补全
-let g:ycm_seed_identifiers_with_syntax=0
+let g:ycm_seed_identifiers_with_syntax=1
 "在注释输入中也能补全
 let g:ycm_complete_in_comments = 1
 "在字符串输入中也能补全
@@ -237,3 +244,31 @@ autocmd WinLeave * set nocursorline
 autocmd InsertEnter * set nocursorline
 " 离开插入模式恢复高亮
 autocmd InsertLeave * set cursorline
+
+" 一键执行
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+    exec "w"
+    if &filetype == 'c'
+                exec "!g++ % -o %<"
+                exec "!time ./%<"
+    elseif &filetype == 'cpp'
+                exec "!g++ % -o %<"
+                exec "!time ./%<"
+    elseif &filetype == 'java'
+                exec "!javac %"
+                exec "!time java %<"
+    elseif &filetype == 'sh'
+                :!time bash %
+    elseif &filetype == 'python'
+                exec "!time python %"
+    elseif &filetype == 'html'
+                exec "!firefox % &"
+    elseif &filetype == 'go'
+        "        exec "!go build %<"
+                exec "!time go run %"
+    elseif &filetype == 'mkd'
+                exec "!~/.vim/markdown.pl % > %.html &"
+                exec "!firefox %.html &"
+    endif
+endfunc
