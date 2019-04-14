@@ -13,7 +13,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'kuari/i3window_sw'
-Plug 'Yggdroot/indentLine'
+"Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-expand-region'
@@ -27,6 +27,7 @@ Plug 'jvanja/vim-bootstrap4-snippets'
 "Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'othree/html5.vim'
 Plug 'vim-scripts/indentpython.vim'
+Plug 'maksimr/vim-jsbeautify'
 
 call plug#end()
 
@@ -272,3 +273,16 @@ func! CompileRunGcc()
                 exec "!firefox %.html &"
     endif
 endfunc
+
+".vimrc
+map <c-f> :call JsBeautify()<cr>
+" or
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+" for json
+autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
+" for jsx
+autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
+" for html
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+" for css or scss
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>

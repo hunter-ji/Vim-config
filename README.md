@@ -31,6 +31,7 @@
 * Plug 'jvanja/vim-bootstrap4-snippets'
 * Plug 'othree/html5.vim'
 * Plug 'vim-scripts/indentpython.vim'
+* Plug 'maksimr/vim-jsbeautify'
 
 ### 插件介绍
 
@@ -62,6 +63,7 @@
 | vim-bootstrap4-snippets | BootStrap4代码块 |  |
 | html5.vim | HTML5增强 |  |
 | indentpython.vim | Python缩进增强 |  |
+| vim-jsbeautify | 格式化html、css、js文件 | Ctrl+f |
 
 ##### 注：相关插件的介绍与作用还需要去相应的主页了解。
 
