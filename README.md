@@ -32,6 +32,10 @@
 * Plug 'othree/html5.vim'
 * Plug 'vim-scripts/indentpython.vim'
 * Plug 'maksimr/vim-jsbeautify'
+* Plug 'posva/vim-vue'
+* Plug 'pangloss/vim-javascript'
+* Plug 'fatih/vim-go'
+* Plug 'tmhedberg/SimpylFold'
 
 ### 插件介绍
 
@@ -64,6 +68,10 @@
 | html5.vim | HTML5增强 |  |
 | indentpython.vim | Python缩进增强 |  |
 | vim-jsbeautify | 格式化html、css、js文件 | Ctrl+f |
+| vim-vue | vue语法高亮 | |
+| pangloss/vim-javascript | javascript语法高亮 | |
+| fatih/vim-go | go语法高亮 | |
+| tmhedberg/SimpylFold | python代码折叠增强 | |
 
 ##### 注：相关插件的介绍与作用还需要去相应的主页了解。
 

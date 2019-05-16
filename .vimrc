@@ -28,6 +28,10 @@ Plug 'jvanja/vim-bootstrap4-snippets'
 Plug 'othree/html5.vim'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'maksimr/vim-jsbeautify'
+Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
+Plug 'fatih/vim-go'
+Plug 'tmhedberg/SimpylFold'
 
 call plug#end()
 
@@ -42,7 +46,7 @@ set encoding=utf-8
 :set tabstop=8 expandtab shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.py :set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
 
-au BufNewFile,BufRead *.js, *.html, *.css, *.yml :set tabstop=2 softtabstop=2 shiftwidth=2
+" au BufNewFile,BufRead *.html, *.css, *.yml :set tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Syntax go :set tabstop=8 expandtab shiftwidth=8 softtabstop=8
 
 " split navigations
@@ -286,3 +290,5 @@ autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 " for css or scss
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+autocmd FileType vue syntax sync fromstart
