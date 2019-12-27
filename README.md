@@ -5,18 +5,17 @@
 
 ### 插件
 
-* Plug 'Valloric/YouCompleteMe'
 * Plug 'flazz/vim-colorschemes'
 * Plug 'vim-airline/vim-airline'
 * Plug 'vim-airline/vim-airline-themes'
 * Plug 'junegunn/vim-easy-align'
 * Plug 'scrooloose/nerdcommenter'
 * Plug 'tpope/vim-surround'
-* Plug 'mattn/emmet-vim'
+* Plug 'mattn/emmet-vim'                                                                                                 
 * Plug 'scrooloose/syntastic'
 * Plug 'easymotion/vim-easymotion'
-* Plug 'SirVer/ultisnips'
-* Plug 'honza/vim-snippets'
+* "Plug 'SirVer/ultisnips'
+* "Plug 'honza/vim-snippets'
 * Plug 'kuari/i3window_sw'
 * Plug 'Yggdroot/indentLine'
 * Plug 'alvan/vim-closetag'
@@ -28,20 +27,30 @@
 * Plug 'kien/ctrlp.vim'
 * Plug 'majutsushi/tagbar'
 * Plug 'terryma/vim-multiple-cursors'
-* Plug 'jvanja/vim-bootstrap4-snippets'
 * Plug 'othree/html5.vim'
-* Plug 'vim-scripts/indentpython.vim'
-* Plug 'maksimr/vim-jsbeautify'
+* "Plug 'vim-scripts/indentpython.vim'
 * Plug 'posva/vim-vue'
 * Plug 'pangloss/vim-javascript'
-* Plug 'fatih/vim-go'
+* "Plug 'fatih/vim-go'
 * Plug 'tmhedberg/SimpylFold'
+* Plug 'Chiel92/vim-autoformat'
+* Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+* Plug 'neoclide/coc.nvim', {'branch': 'release'}
+* Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+* Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+* Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+* Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+* Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
+* Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
+
 
 ### 插件介绍
 
 | 插件名 | 功能 | 快捷键（简略） |
 | ------ | ------ | ------ |
-| YouCompleteMe | 自动补全 | |
+| coc.nvim | 自动补全 | |
 | vim-colorschemes | vim配色 | |
 | vim-airline | vim状态栏 | |
 | vim-airline-themes | vim状态栏主题 | |
