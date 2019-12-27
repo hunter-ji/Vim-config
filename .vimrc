@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged')
 
-Plug 'Valloric/YouCompleteMe'
 Plug 'flazz/vim-colorschemes'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -10,10 +9,10 @@ Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'scrooloose/syntastic'
 Plug 'easymotion/vim-easymotion'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
+"Plug 'honza/vim-snippets'
 Plug 'kuari/i3window_sw'
-"Plug 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
 Plug 'terryma/vim-expand-region'
@@ -23,15 +22,23 @@ Plug 'ap/vim-css-color'
 Plug 'kien/ctrlp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'terryma/vim-multiple-cursors'
-Plug 'jvanja/vim-bootstrap4-snippets'
-"Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'othree/html5.vim'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'maksimr/vim-jsbeautify'
+"Plug 'vim-scripts/indentpython.vim'
 Plug 'posva/vim-vue'
 Plug 'pangloss/vim-javascript'
-Plug 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 Plug 'tmhedberg/SimpylFold'
+Plug 'Chiel92/vim-autoformat'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-yaml', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()
 
@@ -45,6 +52,12 @@ filetype plugin indent on
 set encoding=utf-8
 :set tabstop=8 expandtab shiftwidth=4 softtabstop=4
 au BufNewFile,BufRead *.py :set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+au BufNewFile,BufRead *.html,*.js,*.vue set tabstop=2
+au BufNewFile,BufRead *.html,*.js,*.vue set softtabstop=2
+au BufNewFile,BufRead *.html,*.js,*.vue set shiftwidth=2
+au BufNewFile,BufRead *.html,*.js,*.vue set expandtab
+au BufNewFile,BufRead *.html,*.js,*.vue set autoindent
+au BufNewFile,BufRead *.html,*.js,*.vue set fileformat=unix
 
 " au BufNewFile,BufRead *.html, *.css, *.yml :set tabstop=2 softtabstop=2 shiftwidth=2
 autocmd Syntax go :set tabstop=8 expandtab shiftwidth=8 softtabstop=8
@@ -100,44 +113,19 @@ if exists("*strftime")
     iabbrev xddate <c-r>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 endif
 
-" ycm
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_python_binary_path = '/usr/bin/python'
-
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-" 不显示开启vim时检查ycm_extra_conf文件的信息
-let g:ycm_confirm_extra_conf=0
-" 开启基于tag的补全，可以在这之后添加需要的标签路径
-let g:ycm_collect_identifiers_from_tags_files=1
-"注释和字符串中的文字也会被收入补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 0
-" 输入第2个字符开始补全
-let g:ycm_min_num_of_chars_for_completion=2
-" 禁止缓存匹配项,每次都重新生成匹配项
-let g:ycm_cache_omnifunc=0
-" 开启语义补全
-let g:ycm_seed_identifiers_with_syntax=1
-"在注释输入中也能补全
-let g:ycm_complete_in_comments = 1
-"在字符串输入中也能补全
-let g:ycm_complete_in_strings = 1
-" 引入 C++ 标准库tags
-set tags+=/data/misc/software/misc./vim/stdcpp.tags
-
 " closetag
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.vue'
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
-let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_filetypes = 'html,xhtml,phtml,*.vue'
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,*.vue'
 " integer value [0|1]
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
 let g:closetag_emptyTags_caseSensitive = 1
@@ -210,7 +198,7 @@ function HeaderPython()
     normal o
 endf
 autocmd bufnewfile *.py call HeaderPython()
-" autocmd bufnewfile *.html 0r ~/.vim/template/simple.html
+autocmd bufnewfile *.vue 0r ~/.vim/template/simple.vue
 
 " taglist
 map <silent> <F4> :TlistToggle<cr>
@@ -221,7 +209,7 @@ let Tlist_Exit_OnlyWindow=1
 " 快速跳转
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-    " 设置过滤不进行查找的后缀名
+" 设置过滤不进行查找的后缀名
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn|pyc)$'
 
 " tagbar 结构展示
@@ -231,7 +219,7 @@ nmap <F9> :TagbarToggle<CR>
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 if !exists('g:easy_align_delimiters')
-  let g:easy_align_delimiters = {}
+    let g:easy_align_delimiters = {}
 endif
 let g:easy_align_delimiters['#'] = { 'pattern': '#', 'ignore_groups': ['String'] }
 
@@ -255,40 +243,179 @@ map <F5> :call CompileRunGcc()<CR>
 func! CompileRunGcc()
     exec "w"
     if &filetype == 'c'
-                exec "!g++ % -o %<"
-                exec "!time ./%<"
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
     elseif &filetype == 'cpp'
-                exec "!g++ % -o %<"
-                exec "!time ./%<"
+        exec "!g++ % -o %<"
+        exec "!time ./%<"
     elseif &filetype == 'java'
-                exec "!javac %"
-                exec "!time java %<"
+        exec "!javac %"
+        exec "!time java %<"
     elseif &filetype == 'sh'
-                :!time bash %
+        :!time bash %
     elseif &filetype == 'python'
-                exec "!time python %"
+        exec "!time python %"
     elseif &filetype == 'html'
-                exec "!firefox % &"
+        exec "!firefox % &"
     elseif &filetype == 'go'
         "        exec "!go build %<"
-                exec "!time go run %"
+        exec "!time go run %"
     elseif &filetype == 'mkd'
-                exec "!~/.vim/markdown.pl % > %.html &"
-                exec "!firefox %.html &"
+        exec "!~/.vim/markdown.pl % > %.html &"
+        exec "!firefox %.html &"
     endif
 endfunc
 
-".vimrc
-map <c-f> :call JsBeautify()<cr>
-" or
-autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
-" for json
-autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
-" for jsx
-autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
-" for html
-autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
-" for css or scss
-autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+" vim-autoformat
+noremap <c-f> :Autoformat<CR>
+let g:formatdef_eslint = '"SRC=eslint-temp-${RANDOM}.js; cat - >$SRC; eslint --fix $SRC >/dev/null 2>&1; cat $SRC | perl -pe \"chomp if eof\"; rm -f $SRC"'
+let g:formatters_javascript = ['eslint']
 
-autocmd FileType vue syntax sync fromstart
+"syntax
+let g:syntastic_javascript_checkers = ['eslint']
+"map <c-f> :SyntasticCheck<cr>
+
+" :prettier
+" noremap <c-h> :PrettierAsync<CR>
+" 末尾使用分号
+let g:prettier#config#semi = 'true'
+" 字符串使用单引号
+let g:prettier#config#single_quote = 'false'
+" 使用尾逗号
+let g:prettier#config#trailing_comma = 'none'
+" 括号之间的打印空间
+let g:prettier#config#bracket_spacing = 'true'
+" 将>放到行末而不是新的一行
+let g:prettier#config#jsx_bracket_same_line = 'true'
+
+"coc.vim
+" if hidden is not set, TextEdit might fail.
+set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+"inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+
+" Remap for format selected region
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Remap for do codeAction of current line
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Fix autofix problem of current line
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Create mappings for function text object, requires document symbols feature of languageserver.
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
+
+" Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+"nmap <silent> <C-d> <Plug>(coc-range-select)
+"xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
+
+" Use `:Fold` to fold current buffer
+command! -nargs=? Fold :call     CocAction('fold', <f-args>)
+
+" use `:OR` for organize import of current buffer
+command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
+
+" Add status line support, for integration with other plugin, checkout `:h coc-status`
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
+" Using CocList
+" Show all diagnostics
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+" Manage extensions
+nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+" Show commands
+nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+" Find symbol of current document
+nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+" Search workspace symbols
+nnoremap <silent> <space>s  :<C-u>CocList -I symbols<cr>
+" Do default action for next item.
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+" Do default action for previous item.
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+" Resume latest coc list
+nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+"
+"coc.vim end
